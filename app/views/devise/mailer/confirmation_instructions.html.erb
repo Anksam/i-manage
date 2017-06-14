@@ -1,0 +1,12 @@
+<p>
+  Welcome, <b><%= @user.full_name %></b>
+</p>
+
+<h4>
+  Happy to have you on i-manage.<br>
+  Your personal income and expense manager.
+</h4>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account',confirmation_url(@resource, confirmation_token: @token) %></p>

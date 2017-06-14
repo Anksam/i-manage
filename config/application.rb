@@ -21,5 +21,14 @@ module IManage
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'mail.gmail.com',
+      user_name:            'mail.myrailsapp@gmail.com',
+      password:             ENV['GMAIL_PASSWORD'],
+      authentication:       :login,
+      enable_starttls_auto: true
+    }
   end
 end

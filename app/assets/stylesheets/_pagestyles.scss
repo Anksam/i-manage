@@ -1,0 +1,40 @@
+.jumbotron {
+  background-color: $white;
+  border: 2px solid rgba(0,0,0,0.1);
+  padding: 10px 10px 10px 10px;
+  margin: 0px 0px 30px 0px;
+}
+
+.form-control:focus {
+  border-color: $primary;
+}
+
+.btn-default {
+  background: $primary;
+  border: 1px solid $primary;
+  color: $white;
+  margin-top: 1em;
+}
+
+.btn-default:hover {
+  background: $primary-hover;
+  border: 1px solid $primary-hover;
+  color: $white;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: .3em 1em;
+  line-height: 1.7;
+}
+input[type="text"] {
+  height: 35px;
+}
+textarea {
+  min-height: 12em;
+  max-height: 12em;
+  min-width: 70%;
+  max-width: 100%;
+}
