@@ -22,6 +22,14 @@
   color: $white;
 }
 
+.alert-error, .alert-alert, .alert-success, .alert-notice, .alert-danger {
+    background-color: $primary;
+    border-color: $primary-hover;
+    color: $white;
+    text-align: center;
+ }
+ 
+
 input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
   width: 100%;
   margin-top: 5px;
