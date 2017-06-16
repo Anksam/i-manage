@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :income_categories
   devise_for :users, controllers: { registrations: 'registrations' }
 
   authenticated :user do

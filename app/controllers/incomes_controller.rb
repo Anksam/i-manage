@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
   before_action :set_income, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :check_user, except: [:index]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @incomes = Income.where(user: current_user)

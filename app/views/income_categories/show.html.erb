@@ -1,0 +1,20 @@
+<hr>
+<h4 class="font-fira-m">Income Category Description</h4>
+<hr>
+
+<p>
+  <b><h5 class="font-fira-m">Category name</h4></b>
+  <h5 class="font-fira"><%= @income_category.category_name %></h5>
+</p>
+
+<hr>
+
+<p>
+  <b><h5 class="font-fira-m">Description</h5></b>
+  <h5 class="font-fira"><%= @income_category.description %></h5>
+</p>
+
+<hr>
+
+<%= link_to 'Edit', edit_income_category_path(@income_category), class: 'font-fira-l' %> |
+<%= link_to 'Back', income_categories_path, class: 'font-fira-l' %>
