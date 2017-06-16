@@ -1,9 +1,10 @@
 class IncomesController < ApplicationController
   before_action :set_income, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_user, except: [:index]
 
   def index
-    @incomes = Income.all
+    @incomes = Income.where(user: current_user)
   end
 
   def new
@@ -45,6 +46,12 @@ class IncomesController < ApplicationController
 
     def income_params
       params.require(:income).permit(:amount)
+    end
+
+    def check_user
+      if @income.user_id != current_user.id
+        redirect_to root_url, alert: "Sorry, you are not authorized."
+      end
     end
 
 end

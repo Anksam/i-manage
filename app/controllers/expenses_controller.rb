@@ -1,9 +1,10 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_user, except: [:index]
 
   def index
-    @expenses = Expense.all
+    @expenses = Expense.where(user: current_user)
   end
 
   def new
@@ -46,4 +47,11 @@ class ExpensesController < ApplicationController
     def expense_params
       params.require(:expense).permit(:amount)
     end
+
+    def check_user
+      if @expense.user_id != current_user.id
+        redirect_to root_url, alert: "Sorry, you are not authorized."
+      end
+    end
+
 end
