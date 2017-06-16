@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616184427) do
+ActiveRecord::Schema.define(version: 20170616194230) do
 
   create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "amount"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20170616184427) do
   create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "amount"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
     t.index ["user_id"], name: "index_incomes_on_user_id", using: :btree
   end
 

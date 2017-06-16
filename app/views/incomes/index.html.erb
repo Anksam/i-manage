@@ -2,7 +2,7 @@
 <h4 class="font-fira-m">Income Record History</h4>
 <hr>
 
-<table class="table table-hover">
+<table class="table">
   <thead>
     <tr class="font-fira-m">
       <th>Amount</th>
@@ -17,7 +17,7 @@
       <tr class="font-fira">
         <td><%= income.amount %></td>
         <td><%= income.created_at %></td>
-        <td>Income Category</td>
+        <td><%= link_to income.category_id, income_category_path(income.category_id) %></td>
         <td><%= link_to 'Edit', edit_income_path(income) %></td>
         <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
