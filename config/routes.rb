@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root "static_pages#landing_page"
 
+  resources :incomes
+
   controller :static_pages do
     get :trouble_page
     get :auth_route
