@@ -1,12 +1,9 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_expense, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
     @expenses = Expense.all
-  end
-
-  def show
   end
 
   def new

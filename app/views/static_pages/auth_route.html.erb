@@ -1,11 +1,3 @@
-<h3>
-  Hello, <%= current_user.full_name %> |
-  <% if user_signed_in? %>
-   <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  <% end %>
-</h3>
-<hr>
-
 <%= link_to 'Manage Incomes', incomes_path %> |
 <%= link_to 'Manage Expenses', expenses_path %> |
 <%= link_to 'Manage Income Categories', '#' %> |

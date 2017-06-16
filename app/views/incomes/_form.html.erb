@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :amount %>
-    <%= f.number_field :amount %>
+  <div class="form-group">
+    <%= f.label :amount, class: 'font-fira' %>
+    <%= f.number_field :amount, class: 'form-control font-fira' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-default form-control' %>
   </div>
 <% end %>

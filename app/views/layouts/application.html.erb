@@ -10,7 +10,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/alerts' %>
-    <%= yield %>
+    <% if user_signed_in? %>
+     <%= render 'layouts/navbar' %>
+    <% end %>
+     <%= render 'layouts/alerts' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

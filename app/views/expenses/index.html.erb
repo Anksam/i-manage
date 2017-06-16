@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
+<hr>
+<h3 class="font-fira-m">Expenses Record History</h1>
+<hr>
 
-<h1>Expenses</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
-    <tr>
+    <tr class="font-fira-m">
       <th>Amount</th>
-      <th colspan="3"></th>
+      <th>Date</th>
+      <th>Expense Category</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @expenses.each do |expense| %>
-      <tr>
+      <tr class="font-fira">
         <td><%= expense.amount %></td>
-        <td><%= link_to 'Show', expense %></td>
+        <td><%= expense.created_at %></td>
+        <td>Expense Category</td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -24,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Expense', new_expense_path %>
+<%= link_to 'Add New Expense Record', new_expense_path, class: 'btn btn-default form-control' %>

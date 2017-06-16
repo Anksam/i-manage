@@ -1,3 +1,14 @@
+.navbar-default {
+    background-color: $white;
+    border: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 0px;
+      .navbar-brand {
+        color: $primary;
+        font-weight: normal;
+        font-size: 2em;
+    }
+}
+
 .jumbotron {
   background-color: $white;
   border: 2px solid rgba(0,0,0,0.1);
@@ -28,7 +39,7 @@
     color: $white;
     text-align: center;
  }
- 
+
 
 input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
   width: 100%;

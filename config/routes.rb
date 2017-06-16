@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :expenses
   devise_for :users, controllers: { registrations: 'registrations' }
 
   authenticated :user do
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
 
   root "static_pages#landing_page"
 
-  resources :incomes
+  resources :incomes, except: [:show]
+  resources :expenses, except: [:show]
 
   controller :static_pages do
     get :trouble_page
