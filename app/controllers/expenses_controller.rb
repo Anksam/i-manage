@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :check_user, except: [:index]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @expenses = Expense.where(user: current_user)
@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
     end
 
     def expense_params
-      params.require(:expense).permit(:amount)
+      params.require(:expense).permit(:amount, :category_id)
     end
 
     def check_user

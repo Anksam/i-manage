@@ -1,0 +1,27 @@
+<%= form_for(expense_category) do |f| %>
+  <% if expense_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expense_category.errors.count, "error") %> prohibited this expense_category from being saved:</h2>
+
+      <ul>
+      <% expense_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :category_name, class: 'font-fira' %>
+    <%= f.text_field :category_name, class: 'font-fira form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: 'font-fira' %>
+    <%= f.text_area :description, class: 'font-fira form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-default form-control' %>
+  </div>
+<% end %>

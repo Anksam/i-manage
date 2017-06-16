@@ -17,7 +17,6 @@ class IncomesController < ApplicationController
   def create
     @income = Income.new(income_params)
     @income.user_id = current_user.id
-    @income.category_id = 
 
     if @income.save
       redirect_to incomes_path, notice: 'Income was successfully created.'

@@ -12,9 +12,18 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label :category_id, class: 'font-fira' %>
+    <%= f.collection_select(:category_id, ExpenseCategory.where(user: current_user), :id, :category_name, {prompt: "choose a category"},
+         {class:"form-control dropdown-toggle font-fira"}) %>
+  </div>
+  <%= link_to 'Add New Expense Category', new_expense_category_path %>
+  <br/><br/><br/>
+
+  <div class="form-group">
     <%= f.label :amount, class: 'font-fira' %>
     <%= f.number_field :amount, class: 'form-control font-fira' %>
   </div>
+  <br />
 
   <div class="actions">
     <%= f.submit class: 'btn btn-default form-control' %>

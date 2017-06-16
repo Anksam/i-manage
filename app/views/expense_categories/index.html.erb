@@ -1,0 +1,33 @@
+<% if @expense_categories.present? %>
+  <hr>
+  <h3 class="font-fira-m">Expense Categories</h3>
+  <hr>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="font-fira-m">
+        <th>Category name</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @expense_categories.each do |expense_category| %>
+        <tr class="font-fira">
+          <td><%= expense_category.category_name %></td>
+          <td><%= truncate(expense_category.description, length:80) %>....</td>
+          <td><%= link_to 'Show', expense_category %></td>
+          <td><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
+          <td><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Add New Expense Category', new_expense_category_path, class: 'btn btn-default form-control' %>
+<% else %>
+  <%= render 'expense_categories/details' %>
+<% end %>

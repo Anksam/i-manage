@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :incomes
   has_many :expenses
   has_many :income_categories
+  has_many :expense_categories
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
