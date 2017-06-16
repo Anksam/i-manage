@@ -19,9 +19,9 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
-    
+
     if @expense.save
-      redirect_to @expense, notice: 'Expense was successfully created.'
+      redirect_to expenses_path, notice: 'Expense was successfully created.'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ExpensesController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-      redirect_to @expense, notice: 'Expense was successfully updated.'
+      redirect_to expenses_path, notice: 'Expense was successfully updated.'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense.destroy
-    redirect_to expenses_url, notice: 'Expense was successfully destroyed.'
+    redirect_to expenses_path, notice: 'Expense was successfully destroyed.'
   end
 
   private

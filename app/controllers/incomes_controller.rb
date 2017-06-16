@@ -19,9 +19,9 @@ class IncomesController < ApplicationController
   def create
     @income = Income.new(income_params)
     @income.user_id = current_user.id
-    
+
     if @income.save
-      redirect_to @income, notice: 'Income was successfully created.'
+      redirect_to incomes_path, notice: 'Income was successfully created.'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class IncomesController < ApplicationController
 
   def update
     if @income.update(income_params)
-      redirect_to @income, notice: 'Income was successfully updated.'
+      redirect_to incomes_path, notice: 'Income was successfully updated.'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class IncomesController < ApplicationController
 
   def destroy
     @income.destroy
-    redirect_to incomes_url, notice: 'Income was successfully destroyed.'
+    redirect_to incomes_path, notice: 'Income was successfully destroyed.'
   end
 
   private
