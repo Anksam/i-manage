@@ -1,9 +1,9 @@
 class User < ApplicationRecord
 
-  has_many :incomes, dependent: :destroy
-  has_many :expenses, dependent: :destroy
-  has_many :income_categories, dependent: :destroy
-  has_many :expense_categories, dependent: :destroy
+  has_many :incomes
+  has_many :expenses
+  has_many :income_categories
+  has_many :expense_categories
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable

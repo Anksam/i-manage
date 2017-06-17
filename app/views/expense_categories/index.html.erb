@@ -19,7 +19,6 @@
           <td><%= truncate(expense_category.description, length:80) %>....</td>
           <td><%= link_to 'Show', expense_category %></td>
           <td><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
-          <td><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

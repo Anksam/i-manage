@@ -16,6 +16,10 @@
   margin: 30px 0px 30px 0px;
 }
 
+.panel-primary > .panel-heading {
+  background: $primary;
+}
+
 .form-control:focus {
   border-color: $primary;
 }
@@ -42,6 +46,9 @@
     font-weight: bold;
  }
 
+.seperator-px {
+  margin-top: 25px;
+}
 
 input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
   width: 100%;

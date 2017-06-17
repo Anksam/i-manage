@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :expense_categories
-  resources :income_categories
   devise_for :users, controllers: { registrations: 'registrations' }
 
   authenticated :user do
-    root "static_pages#auth_route", as: "authenticated_root"
+    root "dashboard#dashboard", as: "authenticated_root"
   end
 
   root "static_pages#landing_page"
@@ -13,9 +11,15 @@ Rails.application.routes.draw do
   resources :incomes, except: [:show]
   resources :expenses, except: [:show]
 
+  resources :income_categories
+  resources :expense_categories
+
   controller :static_pages do
     get :trouble_page
-    get :auth_route
+  end
+
+  controller :dashboard do
+    get :dashboard
   end
 
 end

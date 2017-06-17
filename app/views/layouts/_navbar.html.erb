@@ -7,20 +7,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand font-fira-m" href="/">i-manage</a>
+      <a class="navbar-brand font-fira-m" href="#">i-manage</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right font-for-links">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle font-fira" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "#{current_user.full_name}"%> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li role="separator" class="divider"></li>
-            <li class = "content-form"><%= link_to "Your Profile", edit_user_registration_path, class: 'font-fira-l' %></li>
-            <li role="separator" class="divider"></li>
-            <li class = "content-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'font-fira-l' %></li>
-            <li role="separator" class="divider"></li>
-          </ul>
-        </li>
+        <li class = "content-form"><%= link_to "Dashboard", root_path, class: 'font-fira' %></li>
+        <li class = "content-form"><%= link_to "Bank Statement", '#', class: 'font-fira' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle font-fira" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "#{current_user.full_name}"%> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li role="separator" class="divider"></li>
+              <li class = "content-form"><%= link_to "Your Profile", edit_user_registration_path, class: 'font-fira-l' %></li>
+              <li role="separator" class="divider"></li>
+              <li class = "content-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'font-fira-l' %></li>
+              <li role="separator" class="divider"></li>
+            </ul>
+          </li>
       </ul>
     </div>
   </div>
