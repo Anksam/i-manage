@@ -17,7 +17,7 @@
       <tr class="font-fira">
         <td><%= income.amount %></td>
         <td><%= income.date.strftime("%d %B %Y") %></td>
-        <td><%= link_to income.category_id, income_category_path(income.category_id) %></td>
+        <td><%= link_to IncomeCategory.find(income.category_id).category_name, income_category_path(income.category_id) %></td>
         <td><%= link_to 'Edit', edit_income_path(income) %></td>
         <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

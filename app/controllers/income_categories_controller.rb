@@ -1,7 +1,7 @@
 class IncomeCategoriesController < ApplicationController
   before_action :set_income_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @income_categories = IncomeCategory.where(user: current_user)

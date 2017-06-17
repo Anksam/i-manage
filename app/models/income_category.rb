@@ -1,7 +1,7 @@
 class IncomeCategory < ApplicationRecord
 
   belongs_to :user
-  has_many :incomes
+  has_many :incomes, dependent: :destroy
   validates :category_name, presence: true, length: { minimum:5, maximum:15 }
   validates :description, presence: true, length: { minimum:80, maximum:500 }
 

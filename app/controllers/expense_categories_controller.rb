@@ -1,7 +1,7 @@
 class ExpenseCategoriesController < ApplicationController
   before_action :set_expense_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @expense_categories = ExpenseCategory.where(user: current_user)
