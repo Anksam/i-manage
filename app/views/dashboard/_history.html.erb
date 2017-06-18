@@ -20,6 +20,6 @@
   <td><b><%= task.taskable_type %></b></td>
   <td><%= task.taskable_id %></td>
   <td><%= task.amount %></td>
-  <td><%= task.date("%d %B %Y") %></td>
+  <td><%= task.date.strftime("%d %B %Y") %></td>
 </tr>
 <% end %>
