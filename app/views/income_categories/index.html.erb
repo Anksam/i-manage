@@ -6,20 +6,19 @@
   <table class="table table-hover">
     <thead>
       <tr class="font-fira-m">
-        <th>Category name</th>
-        <th>Description</th>
+        <th class="text-center">Category name</th>
+        <th class="text-center">Description</th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @income_categories.each do |income_category| %>
-        <tr class="font-fira">
-          <td><%= income_category.category_name %></td>
+        <tr class="font-fira text-center">
+          <td><b><%= income_category.category_name %><b></td>
           <td><%= truncate(income_category.description, length:80) %>....</td>
           <td><%= link_to 'Show', income_category %></td>
           <td><%= link_to 'Edit', edit_income_category_path(income_category) %></td>
-          <td><%= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

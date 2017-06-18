@@ -4,7 +4,12 @@ class ExpensesController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
-    @expenses = Expense.where(user: current_user)
+    if params[:expense_category].blank?
+     @expenses = Expense.where(user: current_user).order("date DESC")
+    else
+     @category_id = ExpenseCategory.find_by(user: current_user, category_name: params[:expense_category]).id
+     @expenses = Expense.where(user: current_user, category_id: @category_id).order("date DESC")
+    end
   end
 
   def new

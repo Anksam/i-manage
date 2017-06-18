@@ -4,7 +4,12 @@ class IncomesController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
-    @incomes = Income.where(user: current_user)
+    if params[:income_category].blank?
+     @incomes = Income.where(user: current_user).order("date DESC")
+   else
+     @category_id = IncomeCategory.find_by(user: current_user, category_name: params[:income_category]).id
+     @incomes = Income.where(user: current_user, category_id: @category_id).order("date DESC")
+   end
   end
 
   def new
