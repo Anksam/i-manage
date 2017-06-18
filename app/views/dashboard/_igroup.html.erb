@@ -1,0 +1,34 @@
+<div class="col-md-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Income Records.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= Income.where(user: current_user).count %></b> Records
+       </h4>
+      <hr>
+      <h4 class="font-fira-m">
+        <%= link_to '+ Add New', new_income_path, class: 'btn btn-default form-control' %>
+        <%= link_to 'Manage', incomes_path, class: 'btn btn-default form-control' %>
+      </h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Income Category Records.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= IncomeCategory.where(user: current_user).count %></b> Records
+       </h4>
+      <hr>
+      <h4 class="font-fira-m">
+        <%= link_to '+ Add New', new_income_category_path,class: 'btn btn-default form-control' %>
+        <%= link_to 'Manage', income_categories_path,class: 'btn btn-default form-control' %>
+      </h4>
+    </div>
+  </div>
+</div>

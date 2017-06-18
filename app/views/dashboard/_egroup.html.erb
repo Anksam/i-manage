@@ -1,0 +1,33 @@
+<div class="col-md-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Expense Records.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= Expense.where(user: current_user).count %></b> Records
+       </h4>
+      <hr>
+      <h4 class="font-fira-m">
+        <%= link_to '+ Add New', new_expense_path,class: 'btn btn-default form-control' %>
+        <%= link_to 'Manage', expenses_path,class: 'btn btn-default form-control' %>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Expense Category Records.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= ExpenseCategory.where(user: current_user).count %></b> Records
+       </h4>
+      <hr>
+      <h4 class="font-fira-m">
+        <%= link_to '+ Add New', new_expense_category_path,class: 'btn btn-default form-control' %>
+        <%= link_to 'Manage', expense_categories_path,class: 'btn btn-default form-control' %>
+      </h4>
+    </div>
+  </div>
+</div>

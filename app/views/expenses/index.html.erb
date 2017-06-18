@@ -1,46 +1,47 @@
-<hr>
-<h3 class="font-fira-m">Expenses Record History</h1>
-<hr>
+<% if ExpenseCategory.where(user: current_user).present? %>
+  <hr>
+  <h3 class="font-fira-m">Expenses Record History</h1>
+  <hr>
+  <% if ExpenseCategory.where(user: current_user).count > 1 %>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle font-fira" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse Expenses by Category<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Browse All', expenses_path, class: 'font-fira' %></li>
+        <li role="separator" class="divider"></li>
+        <% ExpenseCategory.where(user: current_user).each do |expense_category| %>
+         <li><%= link_to expense_category.category_name, expenses_path(expense_category: expense_category.category_name), class: 'font-fira' %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% else %>
+    <h4 class="font-fira">All Expense Records</h4>
+  <% end %>
+  <hr>
 
-<% if ExpenseCategory.where(user: current_user).count > 1 %>
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle font-fira" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse Expenses by Category<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><%= link_to 'Browse All', expenses_path, class: 'font-fira' %></li>
-      <li role="separator" class="divider"></li>
-      <% ExpenseCategory.where(user: current_user).each do |expense_category| %>
-       <li><%= link_to expense_category.category_name, expenses_path(expense_category: expense_category.category_name), class: 'font-fira' %></li>
-      <% end %>
-    </ul>
-  </li>
-<% else %>
-  <h4 class="font-fira">All Expense Records</h4>
-<% end %>
-<hr>
-
-<table class="table table-hover">
-  <thead>
-    <tr class="font-fira-m">
-      <th class="text-center">Amount</th>
-      <th class="text-center">Date</th>
-      <th class="text-center">Expense Category</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr class="font-fira text-center">
-        <td><b><%= expense.amount %></b></td>
-        <td><%= expense.date.strftime("%d %B %Y") %></td>
-        <td><%= link_to ExpenseCategory.find(expense.category_id).category_name, expense_category_path(expense.category_id), class: 'font-fira-l' %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <table class="table table-hover">
+    <thead>
+      <tr class="font-fira-m">
+        <th class="text-center">Amount</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Expense Category</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'Add New Expense Record', new_expense_path, class: 'btn btn-default form-control' %>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr class="font-fira text-center">
+          <td><b><%= expense.amount %></b></td>
+          <td><%= expense.date.strftime("%d %B %Y") %></td>
+          <td><%= link_to ExpenseCategory.find(expense.category_id).category_name, expense_category_path(expense.category_id), class: 'font-fira-l' %></td>
+          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+          <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'Add New Expense Record', new_expense_path, class: 'btn btn-default form-control' %>
+<% else %>
+  <%= render 'expenses/details' %>
+<% end %>

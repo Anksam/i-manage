@@ -1,0 +1,5 @@
+<% if Task.where(user_id: current_user.id).present? %>
+ <%= render 'dashboard/history' %>
+<% else %>
+ <%= render 'dashboard/details' %>
+<% end %>

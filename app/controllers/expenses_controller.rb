@@ -24,6 +24,7 @@ class ExpensesController < ApplicationController
     @expense.user_id = current_user.id
 
     if @expense.save
+      @expense.tasks.create!(user_id: current_user.id, amount: @expense.amount, date: @expense.date)
       redirect_to expenses_path, notice: 'Expense was successfully created.'
     else
       render :new

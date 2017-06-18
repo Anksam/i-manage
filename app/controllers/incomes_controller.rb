@@ -24,6 +24,7 @@ class IncomesController < ApplicationController
     @income.user_id = current_user.id
 
     if @income.save
+      @income.tasks.create!(user_id: current_user.id, amount: @income.amount, date: @income.date)
       redirect_to incomes_path, notice: 'Income was successfully created.'
     else
       render :new

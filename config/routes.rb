@@ -14,12 +14,14 @@ Rails.application.routes.draw do
   resources :income_categories
   resources :expense_categories
 
+
   controller :static_pages do
     get :trouble_page
   end
 
   controller :dashboard do
     get :dashboard
+    get :bank_statement
   end
 
 end

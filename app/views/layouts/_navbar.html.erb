@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right font-for-links">
         <li class = "content-form"><%= link_to "Dashboard", root_path, class: 'font-fira' %></li>
-        <li class = "content-form"><%= link_to "Bank Statement", '#', class: 'font-fira' %></li>
+        <li class = "content-form"><%= link_to "Bank Statement", bank_statement_path, class: 'font-fira' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle font-fira" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "#{current_user.full_name}"%> <span class="caret"></span></a>
             <ul class="dropdown-menu">

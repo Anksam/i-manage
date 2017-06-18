@@ -1,0 +1,28 @@
+<div class="seperator-px">
+</div>
+
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Income Amount Recorded.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= Income.where(user: current_user).sum(:amount) %></b>
+       </h4>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading font-fira-m text-center">Total Expense Amount Recorded.</div>
+    <div class="panel-body text-center">
+      <hr>
+       <h4 class="font-fira">
+         <b><%= Expense.where(user: current_user).sum(:amount) %></b>
+       </h4>
+      <hr>
+    </div>
+  </div>
+</div>
